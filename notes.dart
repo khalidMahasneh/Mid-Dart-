@@ -383,5 +383,218 @@ void main() {
 
   List<String> startWithS = days.where((element) => element.startsWith("S")).toList();
   print(startWithS); //[Sunday, Saturday]
+  
 }
 
+class Animal {
+  //The ? is used for null safety
+  String? name; 
+  int? numberOfLegs;
+  int? lifeSpan;
+
+  void display() {
+    print("Animal name: $name.");
+    print("Number of Legs: $numberOfLegs.");
+    print("Life Span: $lifeSpan.");
+  }}
+
+class Car {
+  String? name;
+  String? color;
+  int? numberOfSeats;
+
+  void start() {
+    print("$name Car Started.");
+  }
+}
+
+void main(){
+    // Here car is object of class Car. 
+    Car car = Car();
+    car.name = "BMW";
+    car.color = "Red";
+    car.numberOfSeats = 4;
+    car.start(); //BMW Car Started.
+
+
+    // Here car2 is another object of class Car.
+    Car car2 = Car();
+    car2.name = "Audi";
+    car2.color = "Black";
+    car2.numberOfSeats = 4;
+    car2.start(); //Audi Car Started.
+
+}
+
+
+
+class Student {
+  String? name;
+  int? age;
+  int? rollNumber;
+
+  // Constructor
+  Student(String name, int age, int rollNumber) {
+    print(
+        "Constructor called"); // this is for checking the constructor is called or not.
+    this.name = name;
+    this.age = age;
+    this.rollNumber = rollNumber;
+  }
+}
+
+
+
+class Person{
+  String? name;
+  int? age;
+  String? subject;
+  double? salary;
+
+  // Constructor in short form
+  Person(this.name, this.age, this.subject, this.salary);
+}
+
+
+
+class Employee {
+  String? name;
+  int? age;
+  String? subject;
+  double? salary;
+
+  // Constructor With Optional Parameters
+  Employee(this.name, this.age, [this.subject = "N/A", this.salary = 0]);
+}
+
+class Chair {
+  String? name;
+  String? color;
+
+  // Constructor With Named Parameters
+  Chair({this.name, this.color});
+}
+
+class Table {
+  String? name;
+  String? color;
+
+  // Constructor With Default Values
+  Table({this.name = "Table1", this.color = "White"});
+
+  // Method
+  void display() {
+    print("Name: ${this.name}");
+    print("Color: ${this.color}");
+  }
+}
+
+// Encapsulation
+// Note: Dart doesn’t support keywords like public, private, and protected.
+// Dart uses _ (underscore) to make a property or method private.
+// The encapsulation happens at library level, not at class level.
+
+class Employee {
+  // Private properties
+  int? _id;
+  String? _name;
+
+  // Getter method to access private property _id
+  int getId() {
+    return _id!;
+  }
+
+  // Getter method to access private property _name
+  String getName() {
+    return _name!;
+  }
+
+  // Setter method to update private property _id
+  void setId(int id) {
+    this._id = id;
+  }
+
+  // Setter method to update private property _name
+  void setName(String name) {
+    this._name = name;
+  }
+}
+
+void main() {
+  // Create an object of Employee class
+  Employee emp = new Employee();
+
+  // Setting values to the object using setter
+  emp.setId(1);
+  emp.setName("John");
+
+  // Retrieve the values of the object using getter
+  print("Id: ${emp.getId()}");
+  print("Name: ${emp.getName()}");
+}
+
+// How To Create Getter and Setter Methods?
+
+class Vehicle {
+  String _model;
+  int _year;
+
+  // Getter method
+  String get model => _model;
+
+  // Setter method
+  set model(String model) => _model = model;
+
+  // Getter method
+  int get year => _year;
+
+  // Setter method
+  set year(int year) => _year = year;
+}
+
+void main() {
+  var vehicle = Vehicle();
+  vehicle.model = "Toyota";
+  vehicle.year = 2019;
+  print(vehicle.model);
+  print(vehicle.year);
+}
+
+// Inheritance
+
+class Person {
+  // Properties
+  String? name;
+  int? age;
+
+  // Method
+  void display() {
+    print("Name: $name");
+    print("Age: $age");
+  }
+}
+
+// Here in student class, we are extending the
+// properties and methods of the Person class
+class Student extends Person {
+  // Fields
+  String? schoolName;
+  String? schoolAddress;
+
+  // Method
+  void displaySchoolInfo() {
+    print("School Name: $schoolName");
+    print("School Address: $schoolAddress");
+  }
+}
+
+void main() {
+  // Creating an object of the Student class
+  var student = Student();
+  student.name = "John";
+  student.age = 20;
+  student.schoolName = "ABC School";
+  student.schoolAddress = "New York";
+  student.display();
+  student.displaySchoolInfo();
+}
